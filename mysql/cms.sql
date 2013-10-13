@@ -1,3 +1,5 @@
+DROP TABLE Comment, Post, User;
+
 CREATE TABLE User(
 	id INT(10) NOT NULL auto_increment,
 	username VARCHAR(20) NOT NULL,
