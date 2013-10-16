@@ -28,6 +28,15 @@ catch(Exception $ex)
 */
 function login($username, $password)
 {
+    
+    /*
+    * Hint: 
+    * Select the row from the database that has the user account your looking for.
+    * Once you have that row check and see if salt concatenated to the beggining 
+    * of the user supplied password produces the SHA1() hash you expected.  
+    */
+    
+    
     /*
     * Security Good: Uses paramaterized queries... no SQL injection
     * Security Bad: User/Pass will be stored in plaintext for MySQL logs
