@@ -5,6 +5,8 @@ In this part of the project you will rewrite the login() function in
 includes/common.php to be more secure. You will also add the logged in
 users id to the $_SESSION.
 
+To run your project open php/index.php and click Run at the top.
+
 Project Part 2 Deliverables
 ===========
 
