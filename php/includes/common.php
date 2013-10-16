@@ -34,6 +34,8 @@ function login($username, $password)
     * Select the row from the database that has the user account your looking for.
     * Once you have that row check and see if salt concatenated to the beggining 
     * of the user supplied password produces the SHA1() hash you expected.  
+    * So the password stored in the database is SHA1(salt . actualPassword); 
+    * In php . is the + operator for strings.
     */
     
     
