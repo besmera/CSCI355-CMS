@@ -1,4 +1,4 @@
-DROP TABLE Comment, Post, User;
+DROP TABLE IF EXISTS Comment, Post, User;
 
 CREATE TABLE User(
 	id INT(10) NOT NULL auto_increment,
