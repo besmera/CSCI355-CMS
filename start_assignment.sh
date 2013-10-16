@@ -17,7 +17,9 @@ BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 if [[ $1 == $BRANCH ]];
     then
-        echo "No error"
+        echo "Successfully checked out assignment part $1"
+        echo "Running setup script for part $1"
+        sh setup.sh
     else
         #Not neccessary but just to be safe
         RESULT=$(git checkout master)  
@@ -26,6 +28,3 @@ if [[ $1 == $BRANCH ]];
         echo "--------------------------------------"
         exit
 fi
-
-echo "Running setup script for part $1"
-sh setup.sh
