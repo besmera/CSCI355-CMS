@@ -14,14 +14,6 @@ $stmt->execute();
 include_once("includes/header.php");
 ?>
 
-
-
-<div class="row">
-    <div class="col-md-12">
-        <a href="newpost.php" class="btn btn-primary pull-right">New Post</a>
-    </div>
-</div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="media">
@@ -34,7 +26,7 @@ include_once("includes/header.php");
         ?>
            
             <div class="media-body">
-                <h4><a href="showpost.php?pid=<?php echo $row["id"] ?>"><?php echo $row["title"] ?></a> - <span class="text-muted"><?php echo $row["created"] ?></span> </h4>
+                <h4><?php echo $row["title"] ?> - <span class="text-muted"><?php echo $row["created"] ?></span> </h4>
                 <p>
                     <?php echo $row["content"] ?>
                 </p>

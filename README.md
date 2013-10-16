@@ -1,4 +1,4 @@
-CSCI355-CMS
+CSCI355-CMS Project Part 2
 ===========
 
-This serves as a template for your project.  Time permitting we will discuss security issues.
+In this part of the project you will rewrite the login() function in includes/common.php to be more secure.
