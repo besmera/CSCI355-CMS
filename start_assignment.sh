@@ -9,7 +9,7 @@ if [ $# -eq 1 ]
 fi
 
 echo "Fetching remote code"
-RESULT=$(git fetch)
+RESULT=$(git pull)
 
 echo "Checking out assignment part $1"
 RESULT=$(git checkout $1)
