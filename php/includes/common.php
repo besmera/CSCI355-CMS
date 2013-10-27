@@ -16,6 +16,9 @@ $C9_DB = "c9";
 try
 {
     $db = new PDO("mysql:host=$C9_IP;dbname=$C9_DB", $C9_USER, $C9_PASS);
+    
+    //Makes PDO throw exceptions for invalid SQL
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(Exception $ex)
 {
@@ -30,16 +33,6 @@ function login($username, $password)
 {
     
     /*
-    * Hint: 
-    * Select the row from the database that has the user account your looking for.
-    * Once you have that row check and see if salt concatenated to the beggining 
-    * of the user supplied password produces the SHA1() hash you expected.  
-    * So the password stored in the database is SHA1(salt . actualPassword); 
-    * In php . is the + operator for strings.
-    */
-    
-    
-    /*
     * Security Good: Uses paramaterized queries... no SQL injection
     * Security Bad: User/Pass will be stored in plaintext for MySQL logs
     */
@@ -52,8 +45,10 @@ function login($username, $password)
     
     if($stmt->rowCount() == 1)
     {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $_SESSION = array(); //Unset all session vars now
         $_SESSION['username'] = $username; //Set the username var
+        $_SESSION['uid'] = $row["id"];
         return true;
     }
     return false;

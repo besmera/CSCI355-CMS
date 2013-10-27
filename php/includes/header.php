@@ -24,6 +24,11 @@
           <a class="navbar-brand" href="index.php">355 CMS</a>
         </div>
         
+        <ul class="nav navbar-nav">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="newpost.php">New Post</a></li>
+        </ul> 
+        
         <?php 
         if($_SESSION["username"] == "Anonymous") 
         {

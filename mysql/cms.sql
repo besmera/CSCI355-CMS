@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Comment, Post, User;
+DROP TABLE IF EXISTS Comment, Tag, Post, User;
 
 CREATE TABLE User(
 	id INT(10) NOT NULL auto_increment,
@@ -24,6 +24,13 @@ CREATE TABLE Post(
 	FOREIGN KEY(userid) REFERENCES User(id) ON DELETE CASCADE ON UPDATE CASCADE)
 	ENGINE = InnoDB;
 	
+CREATE TABLE Tag( 
+    postid INT(10) NOT NULL, 
+    tag varchar(20) NOT NULL, 
+    PRIMARY KEY(postid, tag),
+    FOREIGN KEY(postid) REFERENCES Post(id) ON DELETE CASCADE ON UPDATE CASCADE) 
+    ENGINE = InnoDB;
+	
 CREATE TABLE Comment(
 	id INT(10) NOT NULL auto_increment,
 	created TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -43,3 +50,5 @@ INSERT INTO Post (title, content, published, userid) VALUES ("Debugging", "Cloud
 INSERT INTO Post (title, content, published, userid) VALUES ("Getting an grip", "This is the a template that you can use for your project in this class.  Take a look at the code in <strong>index.php</strong>, <strong>includes/common.php</strong>, and <strong>login.php</strong> to get an idea of how to work with PHP's PDO.  You can use this later as a template for your own additions and changes.  You should also consult the docs for PHP's PDO to get an idea of how to retrieve for example, just one result, all results, etc...", TRUE, 1);
 
 INSERT INTO Comment (content, userid, postid) VALUES ("You could have done this faster with a framework :(", 1, 1);
+
+INSERT INTO Tag (postid, tag) VALUES (1, "Debugging"), (1, "README"), (2, "General Info"), (2, "README");

@@ -22,14 +22,33 @@ include_once("includes/header.php");
         //Fetch the results one by one in a loop
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         //$row["title"] will hold the title columns value!
-        
         ?>
            
             <div class="media-body">
-                <h4><?php echo $row["title"] ?> - <span class="text-muted"><?php echo $row["created"] ?></span> </h4>
+                <h4><?php echo $row["title"] ?> - <span class="text-muted"><?php echo $row["created"] ?></span></h4>
+                <p>
+                    <?php
+                        //Get all the tags associated with the post being outputed
+                        //You shouldn't trust data from your DB either.
+                        $tagStmt = $db->prepare("SELECT tag FROM Tag WHERE postid = :postid");
+                        $tagStmt->bindValue(":postid", $row["id"]); 
+                        $tagStmt->execute();
+                        
+                        //Loop through all the tags and output them on the screen.
+                        while($tagRow = $tagStmt->fetch(PDO::FETCH_ASSOC))
+                        {
+                    ?>
+                        <span class="label label-default"><?php echo $tagRow["tag"] ?></span>    
+                    <?php        
+                        }
+                    ?>
+                    
+                </p>
                 <p>
                     <?php echo $row["content"] ?>
                 </p>
+                
+                
             </div>
         <?php
         }
