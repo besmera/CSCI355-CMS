@@ -20,19 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         try
         {
-            /*
-            * ******************************************************************
-            * This is the beggining of Project Part 3.  No edits need to be made before this line.
-            * ******************************************************************
-            */
-            
+
             /*
             * Security Good: There is nothing good here. Weary souls beware.
             * Security Bad: Extremely vulnerable to SQL injection.
             */
              
-            //HINT: BEGIN LOGICAL TRANSACTION
-    
             //I don't bother dealing with SQL injection... I'll trust users are honest.
             $query = "INSERT INTO Post (title, content, published, userid) VALUES ('" . $_POST['title'] . "', '" . $_POST['content'] . "', TRUE, " . $_SESSION['uid'] . ")";
             $db->exec($query);  //Insert Post into DB
@@ -53,24 +46,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 $db->exec($query); //Insert the second tag into the DB
             }
             
-            //HINT: If we got here there were no errors inserting anything...
-            
-            //HINT: END LOGICAL TRANSACTION
         }
         catch (Exception $ex)
         {
-            //HINT: If only we could undo those inserts that worked succesfully :)
             
             $error = TRUE;
             //Forcing an error message similar to if no try/catch was done
             $errorMessage = print_r($ex, true);  
         }
-        
-            /*
-            * ******************************************************************
-            * This is the end of Project Part 3.  No edits need to be made after this line.
-            * ******************************************************************
-            */
         
         if(!$error)
         {

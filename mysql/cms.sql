@@ -52,3 +52,15 @@ INSERT INTO Post (title, content, published, userid) VALUES ("Getting an grip", 
 INSERT INTO Comment (content, userid, postid) VALUES ("You could have done this faster with a framework :(", 1, 1);
 
 INSERT INTO Tag (postid, tag) VALUES (1, "Debugging"), (1, "README"), (2, "General Info"), (2, "README");
+
+
+# Project Part 4
+
+
+
+
+# End Project Part 4
+
+
+
+

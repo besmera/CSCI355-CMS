@@ -26,6 +26,34 @@ catch(Exception $ex)
 }
  
 
+/**************************************               
+ * 
+ * Project Part 4
+ * 
+ **************************************/
+ 
+//Set a seperate cookie for A/B Testing
+if(!isset($_COOKIE['abtest']))
+{
+    $group = rand(1,2);
+    $uniq = uniqid();
+    setcookie('abtest[group]', $group);
+    setcookie('abtest[uniq]', $uniq);
+    
+    //Setup the cookie so it can be used on first run.
+    $_COOKIE['abtest'] = array("group" => (string) $group, "uniq" => $uniq);
+
+    //HINT: An insert to the DB would be appropriate here.
+
+}
+
+/**************************************               
+ * 
+ * End Project Part 4
+ * 
+ **************************************/
+
+
 /*
 * Accepts user credentials and returns true if login succeeds, otherwise false.
 */
@@ -49,6 +77,7 @@ function login($username, $password)
         $_SESSION = array(); //Unset all session vars now
         $_SESSION['username'] = $username; //Set the username var
         $_SESSION['uid'] = $row["id"];
+        
         return true;
     }
     return false;

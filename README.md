@@ -1,20 +1,20 @@
-CSCI355-CMS Project Part 3
+CSCI355-CMS Project Part 4
 ===========
-In this part of the project you will edit **newpost.php**. This is the only file 
-you should need to edit.  I've marked the section of code you will be interested in.  
-You do not need to edit anything outside this code section.  I've put hints in throughout.  
+In this part of the project you will create a table to record data for an A/B test.  
+You will also have to insert data into the database and update the data at a later
+time.  Do not worry about normalization of the table.  A single table will do.
 
-You will be doing two things:
-* Rewriting the SQL queries using paramaterized queries.
-* Change the new post implementation to use a transaction
+See this article http://php.net/manual/en/function.uniqid.php to determine the data
+type you should use for the uniq id.  HINT: it will be char() something.
 
+I have already written the code to set a cookie that stores the group and a unique id 
+for each user.  Some will receive a link to subscribe, others a red button.  The 
+idea is to see which one results in more subscriptions.  In order to do that you will:
 
-To run your project open php/index.php and click Run at the top.
+* Create a table to store the uniqid, group number, and whether it resulted in a conversion. (mysql/cms.sql)
+* Insert the uniqid and group into the database (common.php)
+* Later update the database if it resulted in a subscription (goal.php)
+* Write a SELECT statement to calculate the number of people in each group and the number subscribed. Put that in (mysql/cms.sql) as well.
 
-Project Part 3 Deliverables
-===========
-You will need to do the following for 100%.
-* Change the 3 SQL queries so they no longer have SQL injection
-* Implement a transaction so either the post and tags are all inserted or none are
- 
-
+You can test your mysql/cms.sql by running the command: 
+mysql -h $IP -u $C9_USER c9 < mysql/cms.sql

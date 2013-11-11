@@ -48,3 +48,24 @@
 
    
 <div class="container">
+
+
+<?php 
+    if(isset($_COOKIE["abtest"])) 
+    {
+        if($_COOKIE["abtest"]["group"] == "1")
+        {
+?>
+<a href="goal.php">Subscribe</a>
+<?php 
+        }
+        else
+        {
+            ?>
+<a href="goal.php" class="btn btn-danger">Subscribe</a>
+            <?php
+        }
+    }
+?>
+
+

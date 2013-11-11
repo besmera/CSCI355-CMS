@@ -1,10 +1,10 @@
 #!/bin/sh
 
 echo "Creating working branch"
-git branch 3working
+git branch 4working
 
 echo "Checking out working branch"
-git checkout 3working
+git checkout 4working
 
 echo "Starting/Installing MySQL"
 mysql-ctl start
