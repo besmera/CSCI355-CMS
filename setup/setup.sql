@@ -67,9 +67,11 @@ INSERT INTO Post (title, content, published, userid) VALUES ("Hello!", "Welcome 
 
 INSERT INTO Post (title, content, published, userid) VALUES ("Logging in", "You can login with the username admin and the password admin", TRUE, 1);
 
+INSERT INTO Post (title, content, published, userid) VALUES ("Auto Reset", "This site deletes all files created and resets the tables every 30 minutes.  Please keep this in mind as you work.", TRUE, 1);
+
 INSERT INTO Comment (content, userid, postid) VALUES ("I think there is an issue...", 1, 1);
 
-INSERT INTO Tag (postid, tag) VALUES (1, "SQL"), (1, "Injection"), (2, "Auth");
+INSERT INTO Tag (postid, tag) VALUES (1, "SQL"), (1, "Injection"), (2, "Auth"), (3, "Auto Resetting");
 
 
 
