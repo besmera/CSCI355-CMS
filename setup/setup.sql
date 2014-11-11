@@ -67,7 +67,7 @@ CREATE DATABASE payments;
 
 USE payments;
 
-DROP TABLE `PaymentDetails`;
+DROP TABLE IF EXISTS `PaymentDetails`;
 
 CREATE TABLE `PaymentDetails` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
