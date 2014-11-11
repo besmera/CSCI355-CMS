@@ -71,7 +71,6 @@ DROP TABLE IF EXISTS `PaymentDetails`;
 
 CREATE TABLE `PaymentDetails` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
-  `id` mediumint,
   `name` varchar(255) default NULL,
   `address` varchar(255) default NULL,
   `city` varchar(255),
