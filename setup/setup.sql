@@ -6,6 +6,10 @@
 
 # GRANT ALL ON payments.* TO 'payments'@'localhost';
 
+# USE mysql;
+# UPDATE user SET File_priv = 'Y' WHERE User = 'website' OR User = 'payments';
+# FLUSH PRIVILEGES;
+
 DROP DATABASE IF EXISTS website;
 
 CREATE DATABASE website;
