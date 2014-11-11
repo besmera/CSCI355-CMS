@@ -1,3 +1,11 @@
+# CREATE USER 'website'@'localhost' IDENTIFIED BY 'secureWebsite';
+
+# CREATE USER 'payments'@'localhost' IDENTIFIED BY 'securePayments';
+
+# GRANT ALL ON website.* TO 'website'@'localhost';
+
+# GRANT ALL ON payments.* TO 'payments'@'localhost';
+
 DROP DATABASE IF EXISTS website;
 
 CREATE DATABASE website;

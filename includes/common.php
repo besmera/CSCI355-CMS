@@ -10,7 +10,7 @@ if(!array_key_exists("username", $_SESSION))
 
 try
 {
-    $db = new PDO("mysql:host=localhost;dbname=website", "root", "");
+    $db = new PDO("mysql:host=localhost;dbname=website", "website", "secureWebsite");
 
     //Makes PDO throw exceptions for invalid SQL
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
