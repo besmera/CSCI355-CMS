@@ -1,4 +1,4 @@
-DROP DATABASE website;
+DROP DATABASE IF EXISTS website;
 
 CREATE DATABASE website;
 
@@ -61,7 +61,7 @@ INSERT INTO Tag (postid, tag) VALUES (1, "SQL"), (1, "Injection"), (2, "Auth");
 
 
 
-DROP DATABASE payments;
+DROP DATABASE IF EXISTS payments;
 
 CREATE DATABASE payments;
 
